@@ -1,5 +1,5 @@
-{% set name = "xtensor" %}
-{% set version = "0.1.0" %}
+{% set name = "qpbo" %}
+{% set version = "0.2.2" %}
 # {% set sha256 = "22900f7e331967db75e474382994d8b89139065a321581ade3cb26fbbc2b3c9d" %}
 
 package:
@@ -37,5 +37,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - SylvainCorlay
-    - JohanMabille
+    - ThorstenBeier
