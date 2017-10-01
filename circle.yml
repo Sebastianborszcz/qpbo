@@ -8,5 +8,7 @@ machine:
   ruby:
     version:
       1.8.7-p358-falcon-perf
-      
-      
+
+test:
+  post:
+    - bundle exec rake custom:test:suite
