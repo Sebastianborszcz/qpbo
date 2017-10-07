@@ -106,8 +106,8 @@
 	*************************************************************************************
 */
 
-#ifndef __QPBO_H__
-#define __QPBO_H__
+#ifndef __QPBO_QPBO_H__
+#define __QPBO_QPBO_H__
 
 #include <string.h>
 #include "block.h"
@@ -120,6 +120,7 @@
 // #define user_assert(ignore)((void) 0) 
 // #define code_assert(ignore)((void) 0) 
 
+namespace qpbo{
 
 
 // REAL: can be int, float, double.
@@ -805,10 +806,14 @@ template <typename REAL>
 	}
 }
 
+
 /*
 	special constants for node->parent
 */
 #define QPBO_MAXFLOW_TERMINAL ( (Arc *) 1 )		/* to terminal */
 #define QPBO_MAXFLOW_ORPHAN   ( (Arc *) 2 )		/* orphan */
+}
 
 #endif
+
+

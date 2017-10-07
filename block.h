@@ -89,11 +89,12 @@
 	deallocated only when the destructor is called.
 */
 
-#ifndef __BLOCK_H__
-#define __BLOCK_H__
+#ifndef __QPBO_BLOCK_H__
+#define __QPBO_BLOCK_H__
 
 #include <stdlib.h>
 
+namespace qpbo{
 /***********************************************************************/
 /***********************************************************************/
 /***********************************************************************/
@@ -384,6 +385,6 @@ private:
 
 	void	(*error_function)(const char *);
 };
-
+}
 #endif
 

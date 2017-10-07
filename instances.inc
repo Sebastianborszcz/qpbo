@@ -5,6 +5,7 @@
 #endif
 
 // Instantiations
+namespace qpbo{
 
 template class QPBO<int>;
 template class QPBO<float>;
@@ -32,3 +33,4 @@ template <>
 }
 
 
+}

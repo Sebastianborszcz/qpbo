@@ -23,6 +23,7 @@
 #include <string.h>
 #include "QPBO.h"
 
+namespace qpbo{
 
 template <typename REAL> 
 	QPBO<REAL>::QPBO(int node_num_max, int edge_num_max, void (*err_function)(const char *))
@@ -913,6 +914,7 @@ template <typename REAL>
 			exit(1);
 		}
 	}
+}
 }
 
 #include "instances.inc"
