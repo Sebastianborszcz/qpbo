@@ -21,10 +21,10 @@ install(TARGETS qpbo
     LIBRARY DESTINATION lib         COMPONENT libraries
     ARCHIVE DESTINATION lib/static  COMPONENT libraries)
 
-install (TARGETS qpbo
-        ARCHIVE DESTINATION lib
-        LIBRARY DESTINATION lib
-        RUNTIME DESTINATION bin)
+# install (TARGETS qpbo
+#         ARCHIVE DESTINATION lib
+#         LIBRARY DESTINATION lib
+#         RUNTIME DESTINATION bin)
 
 
 install(FILES QPBO.h DESTINATION include/qpbo)
