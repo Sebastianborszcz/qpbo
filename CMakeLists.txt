@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 2.8)
-project (qpbo)
+project (QPBO)
 
 
 # default build-type (release)
@@ -10,31 +10,66 @@ ELSE()
 ENDIF()
 
 
+set(QPBO_VERSION_MAJOR 0)
+set(QPBO_VERSION_MINOR 3)
+set(QPBO_VERSION_PATCH 4)
+
+
+set(QPBO_VERSION 
+    ${QPBO_VERSION_MAJOR}.${QPBO_VERSION_MINOR}.${QPBO_VERSION_PATCH}
+)
+
+
 set(QPBO_SRC_FILES
     QPBO_extra.cpp
     QPBO.cpp
     QPBO_maxflow.cpp
     QPBO_postprocessing.cpp
 )
-   
 
-#include_directories( ${CMAKE_CURRENT_SOURCE_DIR} )
+set(QPBO_HEADERS
+    QPBO.h
+    block.h
+)
+
 
 
 
 ADD_LIBRARY(qpbo SHARED ${QPBO_SRC_FILES})
 
 
-install(TARGETS qpbo
-    RUNTIME DESTINATION bin         COMPONENT libraries
-    LIBRARY DESTINATION lib         COMPONENT libraries
-    ARCHIVE DESTINATION lib/static  COMPONENT libraries)
+include(GNUInstallDirs)
+include(CMakePackageConfigHelpers)
+
+# install(TARGETS qpbo
+#     RUNTIME DESTINATION bin         COMPONENT libraries
+#     LIBRARY DESTINATION lib         COMPONENT libraries
+#     ARCHIVE DESTINATION lib/static  COMPONENT libraries)
 
 # install (TARGETS qpbo
 #         ARCHIVE DESTINATION lib
 #         LIBRARY DESTINATION lib
 #         RUNTIME DESTINATION bin)
 
+install(TARGETS qpbo 
+    DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
-install(FILES QPBO.h DESTINATION include/qpbo)
-install(FILES block.h DESTINATION include/qpbo)
+install(FILES ${QPBO_HEADERS}
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/qpbo)
+
+
+set(QPBO_CMAKECONFIG_INSTALL_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/QPBO" CACHE
+    STRING "install path for QPBOConfig.cmake")
+
+configure_package_config_file(QPBOConfig.cmake.in
+                              "${CMAKE_CURRENT_BINARY_DIR}/QPBOConfig.cmake"
+                              INSTALL_DESTINATION ${QPBO_CMAKECONFIG_INSTALL_DIR})
+
+
+write_basic_package_version_file(${CMAKE_CURRENT_BINARY_DIR}/QPBOConfigVersion.cmake
+                                 VERSION ${QPBO_VERSION}
+                                 COMPATIBILITY AnyNewerVersion)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/QPBOConfig.cmake
+              ${CMAKE_CURRENT_BINARY_DIR}/QPBOConfigVersion.cmake
+        DESTINATION ${XTENSOR_CMAKECONFIG_INSTALL_DIR})

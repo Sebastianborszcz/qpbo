@@ -1,0 +1,14 @@
+# QPBO cmake module
+# This module sets the following variables in your project::
+#
+#   QPBO_FOUND - true if QPBO found on the system
+#   QPBO_INCLUDE_DIRS - the directory containing QPBO headers
+#   QPBO_LIBRARY - the qpbo library
+
+@PACKAGE_INIT@
+
+set(PN QPBO)
+set_and_check(${PN}_INCLUDE_DIRS "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_INCLUDEDIR@")
+set_and_check(${PN}_LIBRARY      "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_LIBDIR@"/qpbo)
+set(${PN}_LIBRARY "")
+check_required_components(${PN})
