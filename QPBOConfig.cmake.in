@@ -14,7 +14,8 @@ FIND_LIBRARY(${PN}_LIBRARY qpbo
     NO_DEFAULT_PATH
 )
 
-
+set_and_check(${PN}_INCLUDE_DIR "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_INCLUDEDIR@")
 set_and_check(${PN}_INCLUDE_DIRS "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_INCLUDEDIR@")
 set_and_check(${PN}_LIBRARY      ${${PN}_LIBRARY})
+set_and_check(${PN}_LIBRARIES      ${${PN}_LIBRARY})
 check_required_components(${PN})
