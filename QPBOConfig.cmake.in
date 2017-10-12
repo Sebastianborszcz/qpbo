@@ -8,6 +8,13 @@
 @PACKAGE_INIT@
 
 set(PN QPBO)
+
+FIND_LIBRARY(${PN}_LIBRARY qpbo
+    PATHS ${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_LIBDIR@
+    NO_DEFAULT_PATH
+)
+
+
 set_and_check(${PN}_INCLUDE_DIRS "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_INCLUDEDIR@")
-set_and_check(${PN}_LIBRARY      "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_LIBDIR@"/qpbo)
+set_and_check(${PN}_LIBRARY      ${${PN}_LIBRARY})
 check_required_components(${PN})
