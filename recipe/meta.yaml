@@ -7,9 +7,9 @@ package:
   version: {{ version }}
 
 source:
-  path: ../
+  #path: ../
   #fn: qpbo-{{ version }}.tar.gz
-  #url: https://github.com/DerThorsten/qpbo/archive/{{ version }}.tar.gz
+  url: https://github.com/Sebastianborszcz/qpbo
   #sha256: {{ sha256 }}
 
 build:
